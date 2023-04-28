@@ -1,0 +1,16 @@
+<div class="login-container">
+  <h1>Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="checkDetails()">
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username" name="username" placeholder="Enter your username" required>
+    <small *ngIf="(loginForm.controls['username'].invalid&&submitted)||(loginForm.controls['username'].touched)&&loginForm.controls['username'].invalid">please enter username</small>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" name="password" placeholder="Enter your password" required>
+    <small *ngIf="(loginForm.controls['password'].invalid&&submitted)||(loginForm.controls['password'].touched)&&loginForm.controls['password'].invalid">please enter password</small>
+    
+    <button type="submit">Login</button>
+  </form>
+  <br>
+  New User <a routerLink="/register">Signup</a> here
+</div>

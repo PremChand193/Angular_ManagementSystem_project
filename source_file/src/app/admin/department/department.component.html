@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="form-container">
+    <form [formGroup]="addDeptForm" (ngSubmit)="addDepartment(addDeptForm)">
+           <h3>Department Management</h3>
+      <label for="deptName">Department Name:</label>
+      <input type="text" id="deptName" formControlName="deptName" placeholder="Enter department name">
+      <small *ngIf="f['deptName'].invalid&&submitted">please enter deptName</small>
+      <br>
+      <label for="deptLocation">Department Location:</label>
+      <input type="text" id="deptLocation" formControlName="deptLocation" placeholder="Enter department location">
+      <small *ngIf="f['deptLocation'].invalid&&submitted">please enter deptLocation</small>
+      <br>
+  
+      <input type="submit" value="AddEmployee">
+    </form>
+  </div>
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Department ID</th>
+          <th>Department Name</th>
+          <th>Department Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let dept of departments">
+        <tr>
+          <th>{{dept.deptId}}</th>
+          <th>{{dept.deptName}}</th>
+          <th>{{dept.deptLocation}}</th>
+        </tr>
+      </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

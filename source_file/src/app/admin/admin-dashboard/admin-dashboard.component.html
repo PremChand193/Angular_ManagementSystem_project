@@ -1,0 +1,22 @@
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>DeptID</th>
+    <th>DeptName</th>
+    <th>DeptLocation</th>
+    <th>No.of Employees</th>
+  </tr>
+</thead>
+<tbody>
+  <ng-container *ngFor="let dash of dashbordData">
+  <tr>
+    <th>{{dash.deptId}}</th>
+    <th>{{dash.deptName}}</th>
+    <th>{{dash.deptLocation}}</th>
+    <th >{{dash.numberOfEmployees}}</th>
+  </tr>
+  
+</ng-container>
+</tbody>
+</table>

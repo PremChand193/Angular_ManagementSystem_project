@@ -1,0 +1,28 @@
+<div class="register-container">
+  <h1>Registration</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="registerDetails()">
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="userName" placeholder="Enter your username" required>
+    <small *ngIf="(f['userName'].invalid&&submitted)||(f['userName'].touched&&f['userName'].invalid)">please enter email</small>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" placeholder="Enter your email" required>
+    <small *ngIf="(f['email'].invalid&&submitted)||(f['email'].touched&&f['email'].invalid)">please enter email</small>
+
+    <label for="phoneNumber">PhoneNumber:</label>
+    <input type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="Enter your phoneNumber" required>
+    <small *ngIf="(f['phoneNumber'].invalid&&submitted)||(f['phoneNumber'].touched&&f['phoneNumber'].invalid)">please enter phonenumber</small>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" placeholder="Enter your password" required>
+    <small *ngIf="(f['password'].invalid&&submitted)||(f['password'].touched&&f['password'].invalid)">please enter password</small>
+     <div>
+    <button type="submit">Register</button>
+    <button type="button" (click)="resetDetails()" class="reset">Refresh</button>
+  </div>
+  </form>
+  <br>
+  Existing User <a routerLink="/">Signin</a> here
+</div>
+

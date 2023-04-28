@@ -1,0 +1,47 @@
+
+<div class="container">
+  <div class="form-container">
+  <form [formGroup]="addEmpForm" (ngSubmit)="addEmployee(addEmpForm)">
+    <h3>Employee Management</h3>
+    <label for="departSelect">Select Department:</label>
+		<select id="departSelect" formControlName="deptId">
+			<option value=null>Select a department</option>
+			<option *ngFor="let dept of departments" [value]="dept.deptId">{{dept.deptName}}</option>
+		</select>
+    <small *ngIf="f['deptId'].invalid&&submitted">**mandatory to select</small>
+		<label for="employeeName">Employee Name:</label>
+		<input type="text" id="employeeName" formControlName="empName" placeholder="Enter employee name">
+    <small *ngIf="f['empName'].invalid&&submitted">please enter empName</small>
+
+		<label for="employeeSalary">Employee Salary:</label>
+		<input type="text" id="employeeSalary" formControlName="empSalary" placeholder="Enter employee salary">
+    <small *ngIf="f['empSalary'].invalid&&submitted">please enter empSalary</small>
+    <br>
+
+		<input type="submit" value="AddEmployee">
+	</form>
+</div>
+<div class="table-container">
+<table class="table">
+  <thead >
+    <tr>
+      <th>EmpId</th>
+      <th>DeptId</th>
+      <th>EmpName</th>
+      <th>EmpSalary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let emp of employees">
+      <tr>
+        <th>{{emp.empId}}</th>
+        <th>{{emp.deptId}}</th>
+        <th>{{emp.empName}}</th>
+        <th>{{emp.empSalary}}</th>
+      </tr>
+    </ng-container>
+    
+  </tbody>
+</table>
+</div>
+</div>
